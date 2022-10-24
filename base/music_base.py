@@ -53,8 +53,7 @@ class MusicPlayer(CallBase):
         title: str,
         duration: str,
         yt_url: str,
-        yt_id: str,
-        messy: types.Message,
+        yt_id: str
     ):
         bot_username, _, _ = await self.bot.get_my()
         mention = await self.bot.get_user_mention(chat_id, user_id)
@@ -79,7 +78,7 @@ class MusicPlayer(CallBase):
         title: str,
         duration: Union[str, int],
         yt_url: str,
-        yt_id: str,
+        yt_id: str
     ):
         playlist = self.playlist
         chat_id = cb.message.chat.id
