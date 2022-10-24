@@ -81,16 +81,16 @@ class VideoPlayer(CallBase):
         await self._set_stream(
             chat_id, user_id, video_url, quality, title, duration, yt_url, yt_id
         )
-        return await messy.edit(
-            f"""
-{gm(chat_id, 'now_streaming')}
-📌 {gm(chat_id, 'yt_title')}: [{title}](https://t.me/{bot_username}?start=ytinfo_{yt_id})
-🕰 {gm(chat_id, 'duration')}: {duration}
-✨ {gm(chat_id, 'req_by')}: {mention}
-📽 {gm(chat_id, 'stream_type_title')}: {gm(chat_id, 'stream_type_video')}
-            """,
-            disable_web_page_preview=True,
-        )
+#        return await messy.edit(
+#            f"""
+#{gm(chat_id, 'now_streaming')}
+#📌 {gm(chat_id, 'yt_title')}: [{title}](https://t.me/{bot_username}?start=ytinfo_{yt_id})
+#🕰 {gm(chat_id, 'duration')}: {duration}
+#✨ {gm(chat_id, 'req_by')}: {mention}
+#📽 {gm(chat_id, 'stream_type_title')}: {gm(chat_id, 'stream_type_video')}
+#            """,
+#            disable_web_page_preview=True,
+#        )
 
     async def stream(
         self,
@@ -113,7 +113,7 @@ class VideoPlayer(CallBase):
                 await sleep(5)
                 return await mess.delete()
             pass
-        messy = await cb.edit_message_text(gm(chat_id, "process"))
+#        messy = await cb.edit_message_text(gm(chat_id, "process"))
         video_url = get_video_direct_link(yt_url, quality)
         try:
             await self._set_streaming(
