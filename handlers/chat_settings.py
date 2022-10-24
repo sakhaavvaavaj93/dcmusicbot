@@ -62,4 +62,4 @@ async def set_vid_quality(_, message: Message):
     db.set_video_quality(message.chat.id, quality)
 #    return await bot.send_message(
 #        message, "success_change_quality", quality, reply_message=True
-    )
+#    )
