@@ -20,8 +20,8 @@ async def new_member_(client: Client, message: Message):
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
-                            InlineKeyboardButton("Channel", url="https://t.me/solidprojects"),
-                            InlineKeyboardButton("Developer", url="https://t.me/talktoabdul_bot"),
+                            InlineKeyboardButton("Channel", url="https://t.me/DC_LOGS"),
+                            InlineKeyboardButton("Developer", url="https://t.me/KRISHNA_THULSI"),
                         ]
                     ]
                 )
@@ -38,9 +38,9 @@ async def add_chat_(_, message: Message):
     if cmds:
         for chat_id in cmds:
             db.add_chat(chat_id, lang)
-        return await bot.send_message(message, "success_add_chats", reply_message=True)
-    db.add_chat(message.chat.id, lang)
-    return await bot.send_message(message, "success_add_chat", reply_message=True)
+#        return await bot.send_message(message, "success_add_chats", reply_message=True)
+#    db.add_chat(message.chat.id, lang)
+#    return await bot.send_message(message, "success_add_chat", reply_message=True)
 
 
 @Client.on_message(filters.command("delchat"))
@@ -49,17 +49,17 @@ async def del_chat_(_, message: Message):
     if cmds:
         for chat_id in cmds:
             db.del_chat(chat_id)
-        return await bot.send_message(message, "success_del_chats", reply_message=True)
-    db.del_chat(message.chat.id)
-    return await bot.send_message(message, "success_del_chat", reply_message=True)
+#        return await bot.send_message(message, "success_del_chats", reply_message=True)
+#    db.del_chat(message.chat.id)
+#    return await bot.send_message(message, "success_del_chat", reply_message=True)
 
 
 @Client.on_message(filters.command("setquality"))
 async def set_vid_quality(_, message: Message):
     quality = "".join(message.command[1]).lower()
-    if quality not in ["low", "medium", "high"]:
-        return await bot.send_message(message, "quality_invalid", reply_message=True)
+#    if quality not in ["low", "medium", "high"]:
+#        return await bot.send_message(message, "quality_invalid", reply_message=True)
     db.set_video_quality(message.chat.id, quality)
-    return await bot.send_message(
-        message, "success_change_quality", quality, reply_message=True
+#    return await bot.send_message(
+#        message, "success_change_quality", quality, reply_message=True
     )
