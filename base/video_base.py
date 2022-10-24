@@ -108,9 +108,9 @@ class VideoPlayer(CallBase):
                 self.extend_playlist(
                     user_id, chat_id, title, duration, yt_url, yt_id, "stream"
                 )
-                mess = await cb.edit_message_text(gm(chat_id, "track_queued"))
-                await sleep(5)
-                return await mess.delete()
+#                mess = await cb.edit_message_text(gm(chat_id, "track_queued"))
+#                await sleep(5)
+#                return await mess.delete()
             pass
 #        messy = await cb.edit_message_text(gm(chat_id, "process"))
         video_url = get_video_direct_link(yt_url, quality)
@@ -125,9 +125,9 @@ class VideoPlayer(CallBase):
                 yt_url,
                 yt_id,
             )
-        except FloodWait as e:
-            await messy.edit(gm(chat_id, "error_flood").format(e.x))
-            await sleep(e.x)
+#        except FloodWait as e:
+#            await messy.edit(gm(chat_id, "error_flood").format(e.x))
+#            await sleep(e.x)
             await self._set_streaming(
                 chat_id,
                 user_id,
