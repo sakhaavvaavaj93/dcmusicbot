@@ -89,17 +89,17 @@ class MusicPlayer(CallBase):
                     user_id, chat_id, title, duration, yt_url, yt_id, "music"
                 )
 #                mess = await cb.edit_message_text(gm(chat_id, "track_queued"))
-                await sleep(5)
-                return await mess.delete()
+#                await sleep(5)
+#                return await mess.delete()
 #        messy = await cb.edit_message_text(gm(chat_id, "process"))
         audio_url = get_audio_direct_link(yt_url)
         try:
             await self._set_playing(
                 chat_id, user_id, audio_url, title, duration, yt_url, yt_id
             )
-        except FloodWait as e:
-            await messy.edit(gm(chat_id, "error_flood").format(e.x))
-            await sleep(e.x)
+#        except FloodWait as e:
+#            await messy.edit(gm(chat_id, "error_flood").format(e.x))
+#            await sleep(e.x)
             await self._set_playing(
                 chat_id, user_id, audio_url, title, duration, yt_url, yt_id
             )
