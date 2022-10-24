@@ -35,16 +35,16 @@ async def _back_cb(_, cb: types.CallbackQuery):
             InlineKeyboardButton("➡", f"next{music_or_stream}"),
         ]
     res = extract_info(cb.message.chat.id, stream_result)
-#    await cb.edit_message_text(
-#        res,
-#        reply_markup=InlineKeyboardMarkup(
-#            [
-#                yt_btn[0],
-#                yt_btn[1],
-#                btn,
-#            ]
-#        ),
-#    )
+    await cb.edit_message_text(
+        res,
+        reply_markup=InlineKeyboardMarkup(
+            [
+                yt_btn[0],
+                yt_btn[1],
+                btn,
+            ]
+        ),
+    )
 
 
 @Client.on_callback_query(filters.regex(pattern=r"((stream|music) ((\d)\|(\d+)))"))
@@ -111,13 +111,13 @@ async def cb_change_lang(_, cb: types.CallbackQuery):
     lang = cb.matches[0].group(1)
     chat_id = cb.message.chat.id
     db.set_chat_lang(chat_id, lang)
-#    await cb.message.edit(
-#        gm(chat_id, "lang_changed"),
-#        reply_markup=InlineKeyboardMarkup(
-#            [
-#                [
-#                    InlineKeyboardButton(gm(chat_id, "channel"), url=configs.config.CHANNEL)
-#                ]
-#            ]
-#        )
-#    )
+    await cb.message.edit(
+        gm(chat_id, "lang_changed"),
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(gm(chat_id, "channel"), url=configs.config.CHANNEL)
+                ]
+            ]
+        )
+    )
