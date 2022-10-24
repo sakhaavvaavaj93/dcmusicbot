@@ -12,7 +12,7 @@ from os import execle, environ
 async def pause(_, message: types.Message):
     chat_id = message.chat.id
     stats = await player.change_streaming_status("pause", chat_id)
-    return await bot.send_message(message, stats, reply_message=True)
+#    return await bot.send_message(message, stats, reply_message=True)
 
 
 @Client.on_message(filters.command("resume"))
@@ -20,7 +20,7 @@ async def pause(_, message: types.Message):
 async def resume_(_, message: types.Message):
     chat_id = message.chat.id
     stats = await player.change_streaming_status("resume", chat_id)
-    return await bot.send_message(message, stats, reply_message=True)
+#    return await bot.send_message(message, stats, reply_message=True)
 
 
 @Client.on_message(filters.command("skip"))
@@ -28,7 +28,7 @@ async def resume_(_, message: types.Message):
 async def skip_(_, message: types.Message):
     chat_id = message.chat.id
     toxt, title = await player.change_stream(chat_id)
-    return await bot.send_message(message, toxt, title, reply_message=True)
+#    return await bot.send_message(message, toxt, title, reply_message=True)
 
 
 @Client.on_message(filters.command("vol"))
@@ -37,9 +37,9 @@ async def change_vol_(_, message: types.Message):
     chat_id = message.chat.id
     vol = int(message.command[1])
     check = await player.change_vol(chat_id, vol)
-    if check:
-        return await bot.send_message(message, "vol_changed", str(vol), True)
-    return await bot.send_message(message, "not_streaming", reply_message=True)
+#    if check:
+#        return await bot.send_message(message, "vol_changed", str(vol), True)
+#    return await bot.send_message(message, "not_streaming", reply_message=True)
 
 
 @Client.on_message(filters.command("end"))
@@ -47,9 +47,9 @@ async def change_vol_(_, message: types.Message):
 async def end_stream_(_, message: types.Message):
     chat_id = message.chat.id
     check_call = await player.end_stream(chat_id)
-    if check_call:
-        return await bot.send_message(message, "track_ended", reply_message=True)
-    return await bot.send_message(message, "not_streaming", reply_message=True)
+#    if check_call:
+#        return await bot.send_message(message, "track_ended", reply_message=True)
+#    return await bot.send_message(message, "not_streaming", reply_message=True)
 
 
 @Client.on_message(filters.command("restart"))
