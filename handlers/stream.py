@@ -35,7 +35,7 @@ async def play_(_, message: types.Message):
             ],
         ),
     )
-
+    await message.delete()
 
 @Client.on_message(filters.command("vplay") & filters.group)
 async def vplay_(_, message: types.Message):
@@ -57,3 +57,4 @@ async def vplay_(_, message: types.Message):
             ]
         ),
     )
+    await message.delete()
