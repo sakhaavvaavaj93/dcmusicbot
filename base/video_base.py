@@ -113,7 +113,8 @@ class VideoPlayer(CallBase):
 #                return await mess.delete()
             pass
         messy = await cb.edit_message_text(gm(chat_id, "process"))
-        await message.delete(messy)
+        await sleep(2)
+        return await messy.delete()
         video_url = get_video_direct_link(yt_url, quality)
         try:
             await self._set_streaming(
