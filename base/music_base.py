@@ -90,8 +90,9 @@ class MusicPlayer(CallBase):
 #                mess = await cb.edit_message_text(gm(chat_id, "track_queued"))
 #                await sleep(5)
 #                return await mess.delete()
-        await cb.edit_message_text(gm(chat_id, "process"))
-        await cb.delete_message_text(gm(chat_id, "process"))
+        messy = await cb.edit_message_text(gm(chat_id, "process"))
+        await sleep(2)
+        return await messy.delete()
         audio_url = get_audio_direct_link(yt_url)
         try:
             await self._set_playing(
