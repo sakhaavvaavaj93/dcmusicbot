@@ -125,7 +125,6 @@ class VideoPlayer(CallBase):
                 duration,
                 yt_url,
                 yt_id,
-                messy,
             )
         except FloodWait as e:
             await messy.edit(gm(chat_id, "error_flood").format(e.x))
@@ -138,8 +137,7 @@ class VideoPlayer(CallBase):
                 title,
                 duration,
                 yt_url,
-                yt_id,
-                messy,
+                yt_id,              
             )
         except NoActiveGroupCall:
             await self.create_call(chat_id)
@@ -151,7 +149,6 @@ class VideoPlayer(CallBase):
                 title,
                 duration,
                 yt_url,
-                yt_id,
-                messy
+                yt_id,              
             )
 
